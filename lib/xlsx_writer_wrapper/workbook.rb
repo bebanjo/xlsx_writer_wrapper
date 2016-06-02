@@ -1,5 +1,5 @@
 module XlsxWriterWrapper
-  module Workbook
+  class Workbook
     extend FFI::Library
 
     ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
@@ -7,6 +7,36 @@ module XlsxWriterWrapper
     class WorkbookOptions < FFI::Struct
       layout :constant_memory, :uint8
     end
+
+    attr_reader :workbook_pointer
+
+    def initialize(filename)
+      @filename = filename
+      @workbook_pointer = workbook_new(filename)
+      @worksheets = []
+    end
+
+    def add_worksheet(worksheet_name)
+      worksheet_pointer = workbook_add_worksheet(workbook_pointer, worksheet_name)
+      worksheet = Worksheet.new(worksheet_pointer, worksheet_name)
+      @worksheets << worksheet
+      worksheet
+    end
+
+    def add_format
+      format_pointer = workbook_add_format(workbook_pointer)
+      Format.new(format_pointer)
+    end
+
+    def worksheets
+      @worksheets
+    end
+
+    def close
+      workbook_close(workbook_pointer)
+    end
+
+    private
 
     attach_function :workbook_new, [:string], :pointer
     attach_function :workbook_new_opt, [:string, :pointer], :pointer

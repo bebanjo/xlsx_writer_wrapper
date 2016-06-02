@@ -5,6 +5,7 @@ module XlsxWriterWrapper
 end
 
 require "xlsx_writer_wrapper/version"
+require "xlsx_writer_wrapper/format"
 require "xlsx_writer_wrapper/worksheet"
 require "xlsx_writer_wrapper/workbook"
 

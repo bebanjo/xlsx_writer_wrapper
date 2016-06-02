@@ -1,8 +1,49 @@
 module XlsxWriterWrapper
-  module Worksheet
+  class Worksheet
     extend FFI::Library
 
     ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
+
+    attr_reader :worksheet_pointer
+
+    def initialize(worksheet_pointer, worksheet_name)
+      @worksheet_name = worksheet_name
+      @worksheet_pointer = worksheet_pointer
+    end
+
+    def write_string(row, column, value, format = nil)
+      worksheet_write_string(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    def write_number(row, column, value, format = nil)
+      worksheet_write_number(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    def write_boolean(row, column, value, format = nil)
+      worksheet_write_boolean(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    def write_datetime(row, column, value, format = nil)
+      worksheet_write_datetime(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    def write_blank(row, column, format = nil)
+      worksheet_write_blank(worksheet_pointer, row, column, format && format.format_pointer)
+    end
+
+    def write_formula(row, column, value, format = nil)
+      worksheet_write_formula(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    def write_formula_num(row, column, value, result, format = nil)
+      worksheet_write_formula_num(worksheet_pointer, row, column, value, format, result)
+    end
+
+    def write_url(row, column, value, format = nil)
+      worksheet_write_url(worksheet_pointer, row, column, value, format && format.format_pointer)
+    end
+
+    private
 
     attach_function :worksheet_write_array_formula, [:pointer, :uint32, :uint16, :uint32, :uint16, :string, :pointer], :int8
     attach_function :worksheet_write_blank, [:pointer, :uint32, :uint16, :pointer], :int8
