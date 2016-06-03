@@ -43,6 +43,14 @@ module XlsxWriterWrapper
       worksheet_write_url(worksheet_pointer, row, column, value, format && format.format_pointer)
     end
 
+    def set_column(first_column, last_column, width, format = nil)
+      worksheet_set_column(worksheet_pointer, first_column, last_column, width, format && format.format_pointer)
+    end
+
+    def set_row(row, height, format = nil)
+      worksheet_set_row(worksheet_pointer, row, height, format && format.format_pointer)
+    end
+
     private
 
     attach_function :worksheet_write_array_formula, [:pointer, :uint32, :uint16, :uint32, :uint16, :string, :pointer], :int8
