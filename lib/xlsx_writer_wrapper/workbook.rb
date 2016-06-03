@@ -4,15 +4,15 @@ module XlsxWriterWrapper
 
     ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
 
-    class WorkbookOptions < FFI::Struct
+    class Options < FFI::Struct
       layout :constant_memory, :uint8
     end
 
     attr_reader :workbook_pointer
 
-    def initialize(filename)
+    def initialize(filename, options = Options.new)
       @filename = filename
-      @workbook_pointer = workbook_new(filename)
+      @workbook_pointer = workbook_new_opt(filename, options)
       @worksheets = []
     end
 
