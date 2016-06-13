@@ -2,7 +2,7 @@ module XlsxWriterWrapper
   class Worksheet
     extend FFI::Library
 
-    ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
+    ffi_lib XlsxWriterWrapper.library_path
 
     attr_reader :worksheet_pointer
 

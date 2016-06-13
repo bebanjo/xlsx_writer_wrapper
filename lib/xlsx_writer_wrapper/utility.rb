@@ -2,7 +2,7 @@ module XlsxWriterWrapper
   class Utility
     extend FFI::Library
 
-    ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
+    ffi_lib XlsxWriterWrapper.library_path
 
     class DateTime < FFI::Struct
       layout :year, :int,
