@@ -4,31 +4,31 @@ module XlsxWriterWrapper
 
     ffi_lib XlsxWriterWrapper::C_LIBRARY_PATH
 
-    FORMAT_UNDERLINES = enum(:single, 1,
-                              :double,
-                              :single_accounting,
-                              :double_accounting)
+    UNDERLINES = enum(:single, 1,
+                      :double,
+                      :single_accounting,
+                      :double_accounting)
 
-    FORMAT_SCRIPTS = enum(:superscript, 1,
-                          :subscript)
+    SCRIPTS = enum(:superscript, 1,
+                    :subscript)
 
-    FORMAT_ALIGNMENTS = enum(:none, 0,
-                              :left,
-                              :center,
-                              :right,
-                              :fill,
-                              :justify,
-                              :center_across,
-                              :distributed,
-                              :vertical_top,
-                              :vertical_bottom,
-                              :vertical_center,
-                              :vertical_justify,
-                              :vertical_distributed)
+    ALIGNMENTS = enum(:none, 0,
+                      :left,
+                      :center,
+                      :right,
+                      :fill,
+                      :justify,
+                      :center_across,
+                      :distributed,
+                      :vertical_top,
+                      :vertical_bottom,
+                      :vertical_center,
+                      :vertical_justify,
+                      :vertical_distributed)
 
-    FORMAT_DIAGONAL_TYPES = enum(:border_up, 1,
-                                  :border_down,
-                                  :border_up_down)
+    DIAGONAL_TYPES = enum(:border_up, 1,
+                          :border_down,
+                          :border_up_down)
 
     DEFINED_COLORS = enum(:black, 0x000000,
                           :blue, 0x0000FF,
@@ -47,40 +47,40 @@ module XlsxWriterWrapper
                           :white, 0xFFFFFF,
                           :yellow, 0xFFFF00)
 
-    FORMAT_PATTERNS = enum(:none, 0,
-                            :solid,
-                            :medium_gray,
-                            :dark_gray,
-                            :light_gray,
-                            :dark_horizontal,
-                            :dark_vertical,
-                            :dark_down,
-                            :dark_up,
-                            :dark_grid,
-                            :dark_trellis,
-                            :light_horizontal,
-                            :light_vertical,
-                            :light_down,
-                            :light_up,
-                            :light_grid,
-                            :light_trellis,
-                            :gray_125,
-                            :gray_0625)
+    PATTERNS = enum(:none, 0,
+                    :solid,
+                    :medium_gray,
+                    :dark_gray,
+                    :light_gray,
+                    :dark_horizontal,
+                    :dark_vertical,
+                    :dark_down,
+                    :dark_up,
+                    :dark_grid,
+                    :dark_trellis,
+                    :light_horizontal,
+                    :light_vertical,
+                    :light_down,
+                    :light_up,
+                    :light_grid,
+                    :light_trellis,
+                    :gray_125,
+                    :gray_0625)
 
-    FORMAT_BORDERS = enum(:none,
-                          :thin,
-                          :medium,
-                          :dashed,
-                          :dotted,
-                          :thick,
-                          :double,
-                          :hair,
-                          :medium_dashed,
-                          :dash_dot,
-                          :medium_dash_dot,
-                          :dash_dot_dot,
-                          :medium_dash_dot_dot,
-                          :slant_dash_dot)
+    BORDERS = enum(:none,
+                    :thin,
+                    :medium,
+                    :dashed,
+                    :dotted,
+                    :thick,
+                    :double,
+                    :hair,
+                    :medium_dashed,
+                    :dash_dot,
+                    :medium_dash_dot,
+                    :dash_dot_dot,
+                    :medium_dash_dot_dot,
+                    :slant_dash_dot)
 
     attr_reader :format_pointer
 
