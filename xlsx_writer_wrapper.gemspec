@@ -6,7 +6,7 @@ require 'xlsx_writer_wrapper/version'
 Gem::Specification.new do |spec|
   spec.name          = "xlsx_writer_wrapper"
   spec.version       = XlsxWriterWrapper::VERSION
-  spec.authors       = ["Alfonso Uceda Pompa"]
+  spec.authors       = ["Bebanjo Devs"]
   spec.email         = ["alfonso@bebanjo.com"]
 
   spec.summary       = %q{Wrapper in ruby for C libxlsxwriter lib}
