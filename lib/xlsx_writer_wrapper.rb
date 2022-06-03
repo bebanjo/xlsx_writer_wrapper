@@ -5,7 +5,12 @@ module XlsxWriterWrapper
   def library_path
     @library_path ||= begin
       if os == :macosx
-        File.dirname(__FILE__) + "/libxlsxwriter.dylib"
+        case cpu
+        when :arm
+          File.dirname(__FILE__) + "/libxlsxwriter.dylib"
+        when :intel
+          File.dirname(__FILE__) + "/libxlsxwriterintel.dylib"
+        end
       else
         File.dirname(__FILE__) + "/libxlsxwriter.so"
       end
@@ -33,6 +38,19 @@ module XlsxWriterWrapper
     )
   end
   module_function :os
+
+  def cpu
+    @cpu ||= (
+      host_cpu = RbConfig::CONFIG['host_cpu']
+      case host_cpu
+      when "x86_64"
+        :intel
+      when "arm"
+        :arm
+      end
+    )
+  end
+  module_function :cpu
 end
 
 require "xlsx_writer_wrapper/version"
