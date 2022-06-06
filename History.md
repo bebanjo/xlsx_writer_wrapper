@@ -1,4 +1,12 @@
-## Version 0.3.1 / 2022-05-11
+## Version 0.3.3 / 2022-05-11
+
+[full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.2...v0.3.3)
+
+### Other
+
+Fix wrong library file for Apple Silicon ([#5](https://github.com/bebanjo/xlsx_writer_wrapper/pull/5))
+
+## Version 0.3.2 / 2022-05-11
 
 [full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.1...v0.3.2)
 
