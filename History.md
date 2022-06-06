@@ -1,5 +1,13 @@
 ## Version 0.3.1 / 2022-05-11
 
+[full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.1...v0.3.2)
+
+### Other
+
+* For MacOS, pick library based on CPU architecture ([#4](https://github.com/bebanjo/xlsx_writer_wrapper/pull/4))
+
+## Version 0.3.1 / 2022-05-11
+
 [full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.0...v0.3.1)
 
 ### Other
