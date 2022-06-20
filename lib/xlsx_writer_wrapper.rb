@@ -12,7 +12,12 @@ module XlsxWriterWrapper
           File.dirname(__FILE__) + "/libxlsxwriterintel.dylib"
         end
       else
-        File.dirname(__FILE__) + "/libxlsxwriter.so"
+        case cpu
+        when :intel
+          File.dirname(__FILE__) + "/libxlsxwriter.so"
+        when :aarch64
+          File.dirname(__FILE__) + "/libxlsxwriteraarch64.so"
+        end
       end
     end
   end
@@ -47,6 +52,8 @@ module XlsxWriterWrapper
         :intel
       when "arm"
         :arm
+      when "aarch64"
+        :aarch64
       end
     )
   end
