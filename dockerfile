@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install \
     --allow-change-held-packages  \
     git build-essential  \
         libffi-dev  && apt clean
-#    git build-essential libffi-dev  \
-#    && apt clean
 
 # To get gems from git
 COPY docker/gitconfig /root/.gitconfig
