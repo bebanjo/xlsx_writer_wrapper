@@ -3,17 +3,25 @@ require "rbconfig"
 
 module XlsxWriterWrapper
   def library_path
-    @library_path ||= begin
-      if os == :macosx
-        case cpu
-        when :arm
-          File.dirname(__FILE__) + "/libxlsxwriter.dylib"
-        when :intel
-          File.dirname(__FILE__) + "/libxlsxwriterintel.dylib"
+    base_dir = File.dirname(__FILE__)
+    @library_path ||=
+      begin
+        case os
+        when :macosx
+          case cpu
+          when :arm
+            "#{base_dir}/libxlsxwriter.dylib"
+          when :intel
+            "#{base_dir}/libxlsxwriterintel.dylib"
+          end
+        else
+          case cpu
+          when :arm
+            "#{base_dir}/libxlsxwriter_arm.so"
+          when :intel
+            "#{base_dir}/libxlsxwriter.so"
+          end
         end
-      else
-        File.dirname(__FILE__) + "/libxlsxwriter.so"
-      end
     end
   end
   module_function :library_path
@@ -45,7 +53,7 @@ module XlsxWriterWrapper
       case host_cpu
       when "x86_64"
         :intel
-      when "arm"
+      when /arm|aarch64/
         :arm
       end
     )
