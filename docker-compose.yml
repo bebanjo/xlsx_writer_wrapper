@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        RUBY_VERSION: ${ENV_RUBY_VERSION}
+    tty: true
+    stdin_open: true
+    command: irb
+    volumes:
+      - .:/app
+      - bundle_path:/bundle
+    environment:
+      BUNDLE_FORCE_RUBY_PLATFORM: 'true'
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      BUNDLE_PATH: /bundle/vendor
+
+volumes:
+  bundle_path:
