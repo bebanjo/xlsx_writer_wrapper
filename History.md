@@ -1,3 +1,11 @@
+## Version 0.3.4 / 2024-07-29
+
+[full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.3...v0.3.4)
+
+### Other
+
+* Add support aarch64 and docker ([#6](https://github.com/bebanjo/xlsx_writer_wrapper/pull/6))
+
 ## Version 0.3.3 / 2022-05-11
 
 [full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.2...v0.3.3)
