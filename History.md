@@ -1,3 +1,11 @@
+## Version 0.3.5 / 2024-08-04
+
+[full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.4...v0.3.5)
+
+### Other
+
+* Update GitHub action file ([#7](https://github.com/bebanjo/xlsx_writer_wrapper/pull/7))
+
 ## Version 0.3.4 / 2024-07-29
 
 [full changelog](https://github.com/bebanjo/xlsx_writer_wrapper/compare/v0.3.3...v0.3.4)
